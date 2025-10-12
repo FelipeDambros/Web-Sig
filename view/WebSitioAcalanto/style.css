@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,400;1,700&display=swap');
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Estilo do menu lateral */
+        .menu {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: #396c41;
+            overflow-x: hidden;
+            transition: 0.3s;
+            padding-top: 60px;
+        }
+
+        .menu a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 25px;
+            color: white;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .menu a:hover {
+            color: #f1f1f1;
+        }
+
+        /* Estilo do botão para abrir o menu */
+        .menu-btn {
+            font-size: 30px;
+            color: #424241;
+            border: none;
+            position: absolute;
+            top: 15px;
+            left: 20px;
+            padding: 0px;
+            cursor: pointer;
+            z-index: 999; /* Garante que o botão fique sobre o menu */
+            background-color: transparent;
+            font-weight: bold;
+        }
+
+        /* Menu aberto (largura de 250px) */
+        .menu.open {
+            width: 250px;
+        }
+
+
+
+.container-div {
+    display: flex;
+    height: 100px; /* ajuste conforme necessário */
+    padding: 0;
+}
+
+.sub-div1 {
+    width: 65px;
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+    justify-content: center;
+    gap: 10px; /* espaço entre as imagens */
+}
+
+.icon-img {
+    width: 25px; /* ajuste conforme necessário */
+    height: 25px;
+}
+
+.sub-div2 {
+    flex: 1;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.center-img {
+    width: 205px; /* ajuste conforme necessário */
+    height: 205px;
+}
+
+.linha-abaixo {
+    width: 90%;
+    height: 2px;
+    background-color: #bad19d; /* escolha a cor desejada */
+    margin-top: 5px; /* espaço entre o container e a linha */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+.menu-lista {
+    margin-top: 70px;
+}
+
+.menu-lista li {
+    font-size: 17px;
+    font-weight: bold;
+    margin-bottom: 18px;
+    color: #cee7ae;
+    list-style-type: disc;
+    font-family: 'Open Sans', Arial, sans-serif;
+    font-style: italic;
+}
+
+
+/* Ajuste o container principal */
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    transition: margin-left 0.3s, width 0.3s;
+    width: 100%;
+}
+
+/* Quando o menu estiver aberto, desloque todo o conteúdo */
+body.menu-aberto .main-content {
+    margin-left: 250px;
+    width: calc(100% - 250px);
+}
+
+/* O header não precisa mais de deslocamento individual */
+.main-header {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 15px 0 15px 0;
+    background: #bad19d;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.main-header h1 {
+    color: #396c41;
+    font-family: 'Open Sans', Arial, sans-serif;
+    font-size: 2rem;
+    margin: 0;
+    font-weight: bold;
+}
+
+/* Quando o menu lateral estiver aberto, ajuste o iframe */
+body.menu-aberto .iframe-apresentacao {
+    width: 100%;
+    left: 0;
+    max-width: 100%;
+}
+
+/* O iframe ocupa todo o espaço restante */
+.iframe-apresentacao {
+    flex: 1;
+    width: 100%;
+    border: none;
+    min-height: 0;
+    max-width: 100%;
+}
+
+@media (max-width: 600px) {
+    .main-header h1 {
+        font-size: 0.5rem;
+    }
+}
