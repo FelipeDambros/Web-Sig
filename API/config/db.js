@@ -4,21 +4,21 @@ const { Pool } = require('pg');
 const dbConfigs = {
     Dados_Jacarei: {
         user: 'Felipe',
-        host: 'acesso.geowebsig.shop',
+        host: 'Localhost',
         database: 'Dados_Jacarei',
         password: 'carlosfelipe',
         port: 5432,
     },
     assentamento_pa_egidio_brunetto: {
         user: 'Felipe',
-        host: 'acesso.geowebsig.shop',
+        host: 'Localhost',
         database: 'assentamento_pa_egidio_brunetto',
         password: 'carlosfelipe',
         port: 5432,
     },
     Sitio_Ecologico: {
         user: 'Felipe',
-        host: 'acesso.geowebsig.shop',
+        host: 'Localhost',
         database: 'Sitio_Ecologico',
         password: 'carlosfelipe',
         port: 5432,
