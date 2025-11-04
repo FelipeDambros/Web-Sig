@@ -9,7 +9,7 @@ map.attributionControl.setPrefix('');
 map.attributionControl.addAttribution('&copy; <a href="https://leafletjs.com/" target="_blank">Leaflet</a> | <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors |');
 
 // URLs dos arquivos GeoJSON
-const geojsonUrl1 = 'http://localhost:5000/geojson?tabela=pmj_cache_geojson&banco=Dados_Jacarei&key=pmj_limite_municipal';
+const geojsonUrl1 = 'https://geo.jacarei.sp.gov.br/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=gm_jacarei:st_edificio&outputFormat=application/json';
 
 
 // Estilo para limites municipais (polígonos)
