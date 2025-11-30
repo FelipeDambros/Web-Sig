@@ -1,78 +1,131 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sítio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-  <link rel="stylesheet" href="map.css">
-  <link rel="stylesheet" href="pagina.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Site</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="style.css">
+
+
 </head>
 <body>
+    <header class="cabecalho" id="cabecalho">
+        <div class="cabecalho-container">
+            <img src="Imagem/Logo_Sitio.png" alt="Logo do Sítio" class="logo-img">
 
-  <div class="conteiner">
-    <button id="menuToggle" class="menu-toggle" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Abrir menu" onclick="toggleMenu()">☰</button>
-    <div class="top-bar">
-      
-      <div class="image-top">
-        <img src="imagens/Logo_Sitio.png" alt="">
-      </div>
-      <div class="botao">
-                    <!-- Aqui, a div inteira é clicável -->
-                    <div class="link-div" onclick="atualizarIframe('CafeAcaua/index.html', 'SÍTIO ECOLÓGICO: CAFÉ ACUAÊ')">
-                        <p class="til-botao">Café Acauê</p>
-                    </div>
-                    <div class="link-div" onclick="atualizarIframe('pagina2.html', 'SÍTIO ECOLÓGICO: CAFÉ AGROFLORESTAL')">
-                        <p class="til-botao">Café Agroflorestal</p>
-                    </div>
-                    <div class="link-div" onclick="atualizarIframe('pagina3.html', 'SÍTIO ECOLÓGICO: CAFÉ ASA BRANCA')">
-                        <p class="til-botao">Café Asa Branca</p>
-                    </div>
-                    <div class="link-div" onclick="atualizarIframe('pagina4.html', 'SÍTIO ECOLÓGICO: CAFÉ SIRIEMA')">
-                        <p class="til-botao">Café Siriema</p>
-                    </div>
-                    <div class="link-div" onclick="atualizarIframe('pagina5.html', 'SÍTIO ECOLÓGICO: CAFÉ ARARA')">
-                        <p class="til-botao">Café Arara</p>
-                    </div>
-                    <div class="link-div" onclick="atualizarIframe('pagina6.html', 'SÍTIO ECOLÓGICO: CAFÉ GUARÁ')">
-                        <p class="til-botao">Café Guará</p>
-                    </div>
-      </div>
-      <div class="texto">
-          <p class="txt-top">
-             <strong>Sítio Ecológico</strong> iniciou em 2023 a “experiência” de implantação<br>
-                do café sombreado, ou seja, o café consorciado com a floresta ou<br>
-                café agroflorestal. <button class="btn-saiba-mais">Clique e saiba mais</button>
-          </p>
-      </div>
+            <div class="botao">
+                <div class="link-div" onclick="atualizarIframe('CafeAcaua/index.html', 'SÍTIO ECOLÓGICO: CAFÉ ACUAÊ')">
+                    <p class="til-botao">Café Acauê</p>
+                </div>
+                <div class="link-div" onclick="atualizarIframe('pagina2.html', 'SÍTIO ECOLÓGICO: CAFÉ AGROFLORESTAL')">
+                    <p class="til-botao">Café Agroflorestal</p>
+                </div>
+                <div class="link-div" onclick="atualizarIframe('pagina3.html', 'SÍTIO ECOLÓGICO: CAFÉ ASA BRANCA')">
+                    <p class="til-botao">Café Asa Branca</p>
+                </div>
+                <div class="link-div" onclick="atualizarIframe('pagina4.html', 'SÍTIO ECOLÓGICO: CAFÉ SIRIEMA')">
+                    <p class="til-botao">Café Siriema</p>
+                </div>
+                <div class="link-div" onclick="atualizarIframe('pagina5.html', 'SÍTIO ECOLÓGICO: CAFÉ ARARA')">
+                    <p class="til-botao">Café Arara</p>
+                </div>
+                <div class="link-div" onclick="atualizarIframe('pagina6.html', 'SÍTIO ECOLÓGICO: CAFÉ GUARÁ')">
+                    <p class="til-botao">Café Guará</p>
+                </div>
 
+                <div class="link-div" onclick="atualizarIframe('pagina6.html', 'SÍTIO ECOLÓGICO: CAFÉ GUARÁ')">
+                    <p class="til-botao">Desenvolvedores</p>
+                </div>
+
+                </div>
+
+            </div>
+            
+        </div>
+    </header>
+    <button class="openbtn" onclick="toggleNav()">☰</button>
+
+     <!-- ✅ Menu lateral COM A GALERIA -->
+    <div id="mySidebar" class="sidebar">
+        <!-- ✅ Botões dentro do menu lateral (somente mobile) -->
+        <div class="botao-menu-mobile">
+
+            <div class="link-div-mobile" onclick="atualizarIframe('CafeAcaua/index.html')">
+                <p class="til-botao">Café Acauê</p>
+            </div>
+
+            <div class="link-div-mobile" onclick="atualizarIframe('pagina2.html')">
+                <p class="til-botao">Café Agroflorestal</p>
+            </div>
+
+            <div class="link-div-mobile" onclick="atualizarIframe('pagina3.html')">
+                <p class="til-botao">Café Asa Branca</p>
+            </div>
+
+            <div class="link-div-mobile" onclick="atualizarIframe('pagina4.html')">
+                <p class="til-botao">Café Siriema</p>
+            </div>
+
+            <div class="link-div-mobile" onclick="atualizarIframe('pagina5.html')">
+                <p class="til-botao">Café Arara</p>
+            </div>
+
+            <div class="link-div-mobile" onclick="atualizarIframe('pagina6.html')">
+                <p class="til-botao">Café Guará</p>
+            </div>
+
+            <div class="link-div-mobile" onclick="atualizarIframe('pagina6.html')">
+                <p class="til-botao">Café Guará</p>
+            </div>
+
+            <div class="link-div-mobile" onclick="abrirGaleriaMobile()">
+                <p class="til-botao">Galeria</p>
+            </div>
+
+            <div class="link-div-mobile" onclick="abrirGaleriaMobile()">
+                <p class="til-botao">Desenvolvedores</p>
+            </div>
+
+        </div>
+
+        <div class="gallery-container">
+            <button class="btn-voltar-galeria" onclick="voltarMenu()">
+                ⟵ Voltar
+            </button>
+
+            <button onclick="scrollUp()" class="scroll-btn">
+                <img src="Imagem/Seta.png" alt="Up">
+            </button>
+
+            <div class="gallery">
+                <img loading="lazy" src="Galeria/1.jpg">
+                <img loading="lazy" src="Galeria/2.jpg">
+                <img loading="lazy" src="Galeria/3.jpg">
+                <img loading="lazy" src="Galeria/4.jpg">
+                <img loading="lazy" src="Galeria/5.jpg">
+                <img loading="lazy" src="Galeria/6.jpg">
+                <img loading="lazy" src="Galeria/7.jpg">
+                <img loading="lazy" src="Galeria/8.jpg">
+                <img loading="lazy" src="Galeria/9.jpg">
+                <img loading="lazy" src="Galeria/10.jpg">
+                <img loading="lazy" src="Galeria/11.jpg">
+            </div>
+
+            <button onclick="scrollDown()" class="scroll-btn-baixo">
+                <img src="Imagem/Seta_baixo.png" alt="Down">
+            </button>
+        </div>
+        
     </div>
-    <div id="map"></div>
 
-    <!-- INÍCIO: adicionado — sidebar recolhível -->
-    <aside id="sidebarMenu" class="sidebar" role="navigation" aria-hidden="true" tabindex="-1">
-      <nav>
-        <ul>
-          <li><a href="#" onclick="atualizarIframe('CafeAcaua/index.html', 'SÍTIO ECOLÓGICO: CAFÉ ACUAÊ'); toggleMenu(); return false;">Café Acauê</a></li>
-          <li><a href="#" onclick="atualizarIframe('pagina2.html', 'SÍTIO ECOLÓGICO: CAFÉ AGROFLORESTAL'); toggleMenu(); return false;">Café Agroflorestal</a></li>
-          <li><a href="#" onclick="atualizarIframe('pagina3.html', 'SÍTIO ECOLÓGICO: CAFÉ ASA BRANCA'); toggleMenu(); return false;">Café Asa Branca</a></li>
-          <li><a href="#" onclick="atualizarIframe('pagina4.html', 'SÍTIO ECOLÓGICO: CAFÉ SIRIEMA'); toggleMenu(); return false;">Café Siriema</a></li>
-          <li><a href="#" onclick="atualizarIframe('pagina5.html', 'SÍTIO ECOLÓGICO: CAFÉ ARARA'); toggleMenu(); return false;">Café Arara</a></li>
-          <li><a href="#" onclick="atualizarIframe('pagina6.html', 'SÍTIO ECOLÓGICO: CAFÉ GUARÁ'); toggleMenu(); return false;">Café Guará</a></li>
-        </ul>
-      </nav>
-    </aside>
-    <!-- FIM: adicionado — sidebar recolhível -->
+    <div id="main">
+        <div id="map"></div>
+        <!-- Conteúdo principal -->
+    </div>
 
-  </div>
-  
-  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-  <script src="mapv3.js"></script>
-  <script src="pagina.js"></script>
+    <script src="script.js"></script>
 
-  <!-- adicionado: controle do menu -->
-  <script src="menu.js"></script>
 
-</body>
-</html>

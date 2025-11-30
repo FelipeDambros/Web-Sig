@@ -1,0 +1,409 @@
+* {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .cabecalho {
+            background: linear-gradient(
+                to right,
+                rgb(180, 215, 150),
+                rgb(92, 118, 22)
+            );
+            width: 100%;
+            height: auto;
+            padding: 5px 5px;
+            justify-content: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .cabecalho-container {
+                width: 100%;
+                display: flex;
+                align-items: center; /* ✅ centraliza verticalmente */
+                justify-content: center; /* ✅ centraliza horizontalmente */
+                gap: 20px; /* opcional: espaçamento entre logo e botões */
+        }
+
+        .logo-img {
+            margin-left: 60px;
+            padding-left: 10px;
+            width: 100px;
+            height: auto;
+        }
+
+        .sidebar {
+            top: var(--altura-header);
+            height: calc(100vh - var(--altura-header));
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 20px;
+            background: linear-gradient(
+                to right,
+                rgb(180, 215, 150),
+                rgb(92, 118, 22)
+            );
+            background-size: 100vw 100%;  /* ocupa toda largura da tela */
+            background-position-x: 0;     /* começa do mesmo ponto do header */
+            z-index: 5000 !important;
+        }
+
+        .sidebar a {
+            padding: 10px 10px 10px 32px;
+            text-decoration: none;
+            font-size: 18px;
+            color: #818181;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .sidebar a:hover {
+            color: #f1f1f1;
+        }
+
+        .sidebar .closebtn {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 36px;
+        }
+
+        .openbtn {
+            position: fixed;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 2000;
+            font-size: 26px;
+            cursor: pointer;
+            color: rgb(0, 0, 0);
+
+            /* ✅ Remove totalmente o fundo */
+            background: none;
+            border: none;
+
+            padding: 0px 0px;
+            transition: 
+                left 0.4s ease,
+                transform 0.4s ease,
+                background-color 0.3s ease,
+                font-size 0.3s ease;
+        }
+
+        /* Quando o menu abre → botão vai junto */
+        .openbtn.menu-open {
+            left: 260px; /* sidebar = 250px + folga */
+        }
+
+        /* Quando o menu abre → vira X */
+        .openbtn.menu-open::after {
+            content: "×"; 
+            
+        }
+
+        /* Esconde o caractere original ☰ quando o X aparecer */
+        .openbtn.menu-open {
+            font-size: 0; /* remove o conteúdo original */
+            
+        }
+
+        .openbtn.menu-open::after {
+            font-size: 30px; /* exibe só o X */
+            color: rgb(0, 0, 0);
+        }
+
+        #main {
+            width: 100%;
+            height: 100%;
+            overflow-x: hidden; /* ✅ Evita scroll lateral */
+            transition: margin-left .5s;
+        }
+
+        /* ✅ GALERIA DENTRO DO MENU */
+
+        .gallery-container {
+            width: 100%;
+            height: 95%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow: hidden;
+            margin-top: 10px;
+        }
+
+        .gallery {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            overflow-y: auto;
+            height: 1000px;
+            padding-right: 5px;
+            /* Adicione estes estilos para esconder a barra de rolagem */
+            -ms-overflow-style: none;  /* Para Internet Explorer e Edge */
+            scrollbar-width: none;     /* Para Firefox */
+        }
+
+        /* Adicione esta regra para esconder a barra de rolagem no Chrome, Safari e Opera */
+        .gallery::-webkit-scrollbar {
+            display: none;
+        }
+
+        .gallery img {
+            width: 50%;
+            margin: 0 auto;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: .2s;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.03);
+        }
+
+        .scroll-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+
+        .scroll-btn-baixo {
+            background: none;
+            border: none;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+
+        .scroll-btn img {
+            width: 22px;
+            
+        }
+
+        .scroll-btn-baixo img {
+            width: 22px;
+            
+        }
+
+        /* ====== BOTÕES CAFÉS ====== */
+        .botao {
+            display: flex;
+            flex-wrap: wrap; /* permite quebrar linha no mobile */
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            flex: 1;
+            height: 100%;
+            display: flex;
+            align-items: center; /* centraliza verticalmente */
+        }
+
+        .link-div {
+            width: 130px;
+            height: 100%; /* ocupa toda altura do header */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;  /* centraliza o texto */
+            align-items: center;      /* centraliza horizontalmente */
+        }
+
+        .link-div:hover {
+            transform: scale(1.05);
+        }
+
+        .link-div::after {
+            content: ' ';
+            display: block;
+            width: 100%;
+            height: 4px;
+            background-color: rgb(213, 235, 212);
+            transition: height 0.3s;
+            margin-top: 5px;
+        }
+
+        .link-div:hover::after {
+            height: 6px;
+        }
+
+        .til-botao {
+            color: aliceblue;
+            margin: 0;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        /* ✅ Contêiner dos botões dentro do menu lateral */
+        .botao-menu-mobile {
+            display: none; /* aparece só no mobile */
+            flex-direction: column;
+            align-items: center;
+            padding: 10px 0;
+            gap: 12px;
+        }
+
+        /* ✅ Cada botão do menu lateral (mesmo estilo da .link-div) */
+        .botao-menu-mobile .link-div-mobile {
+            width: 80%;                /* ocupa boa parte da largura */
+            height: 50px;              /* altura padrão */
+            background: transparent;   /* sem fundo */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: .2s;
+        }
+
+        /* ✅ Linha inferior igual ao header */
+        .botao-menu-mobile .link-div-mobile::after {
+            content: '';
+            display: block;
+            width: 100%;
+            height: 4px;
+            background-color: rgb(213, 235, 212);
+            margin-top: 5px;
+            transition: height 0.3s;
+        }
+
+        /* ✅ Hover igual ao header */
+        .botao-menu-mobile .link-div-mobile:hover {
+            transform: scale(1.05);
+        }
+        .botao-menu-mobile .link-div-mobile:hover::after {
+            height: 6px;
+        }
+
+        /* ✅ Texto igual ao header */
+        .botao-menu-mobile .til-botao {
+            color: aliceblue;
+            margin: 0;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        /* ✅ Desktop: botão nunca aparece */
+        .btn-voltar-galeria {
+            display: none !important;
+        }
+
+        @media (max-width: 900px) {
+
+             /* Centraliza a logo de forma FORÇADA */
+        .cabecalho-container {
+            justify-content: center !important;
+            align-items: center !important;
+            display: flex !important;
+            position: relative;
+        }
+
+        /* Remove qualquer empurrão da logo */
+        .logo-img {
+            margin: 0 auto !important;
+            padding: 0 !important;
+            display: block;
+        }
+
+    /* Garantir que nada dentro empurre ela */
+    .botao {
+        display: none !important;
+    }
+
+            .botao {
+                display: none;
+            }
+
+            .logo-img {
+                width: 80px;
+                padding-left: 0px;
+            }
+
+            .cabecalho {
+                padding: 8px 0px;
+            }
+
+            /* ✅ Botão fora do header */
+            .openbtn {
+                position: fixed;
+                top: 70px;     /* abaixo do header */
+                left: 10px;
+                transform: none;
+                font-size: 26px;
+                z-index: 3000;
+            }
+
+            /* ✅ Quando abrir o menu */
+            .openbtn.menu-open {
+                left: 260px;   /* acompanha o menu */
+                top: 70px;
+            }
+
+            /* ✅ Esconder galeria no mobile */
+            .gallery-container {
+                display: none;
+            }
+
+            /* ✅ Exibir botões dos cafés no menu lateral */
+            .sidebar .botao-menu-mobile {
+                display: flex !important;
+            }
+
+            /* ✅ Estado inicial */
+            .gallery-container.mobile-active {
+                display: flex !important; /* força aparecer */
+            }
+
+            .botao-menu-mobile.hidden {
+                display: none !important;
+            }
+
+            .btn-voltar-galeria {
+                display: none; /* só aparece quando ativada */
+                background-color: rgba(255,255,255,0.2);
+                color: white;
+                padding: 10px 20px;
+                font-size: 16px;
+                border-radius: 6px;
+                margin-bottom: 15px;
+                border: 1px solid rgba(255,255,255,0.3);
+                cursor: pointer;
+                transition: .2s;
+            }
+
+            .btn-voltar-galeria:hover {
+                background-color: rgba(255,255,255,0.35);
+                transform: scale(1.03);
+            }
+
+            /* ✅ Botão aparecerá dentro da galeria */
+            .gallery-container.show-back-button .btn-voltar-galeria {
+                display: block !important;
+            }
+        }
+
+        #map {
+            width: 100%;
+            height: calc(100vh - var(--altura-header));
+        }
+
+        .leaflet-control-container .leaflet-bottom.leaflet-right {
+            right: 10px !important;
+            bottom: 10px !important;
+        }
+
+        .leaflet-control-zoom {
+            box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+            border-radius: 6px;
+        }
+
+        :root {
+            --altura-header: 70px; /* ajuste conforme sua necessidade */
+        }
